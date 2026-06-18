@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>El Túnel del Toyo: la obra que transformará Colombia — PulsoMundo</title>
+<meta name="description" content="El túnel carretero más largo de América Latina enfrenta su momento más decisivo: un avance histórico y una polémica que retrasa su apertura."/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:      #060708;
+    --card:    #0f1214;
+    --border:  #1c2023;
+    --teal:    #6ee7d8;
+    --teal-dim:#1f3d3a;
+    --text:    #f3f5f4;
+    --muted:   #888f93;
+    --muted-2: #5a6063;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(6,7,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.1rem clamp(1.5rem, 5vw, 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-logo svg { width: 16px; height: 16px; }
+
+  .nav-back {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--teal); }
+
+  /* HERO */
+  .article-hero {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem clamp(1.5rem, 5vw, 2rem) 2rem;
+  }
+
+  .article-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+  }
+
+  .article-category::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  .article-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2rem;
+  }
+
+  .article-subtitle {
+    font-size: 1.15rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted-2);
+    letter-spacing: 0.04em;
+  }
+
+  .meta-item span { color: var(--muted); }
+
+  /* COVER IMAGE */
+  .article-cover {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .cover-img {
+    width: 100%;
+    height: clamp(220px, 40vw, 420px);
+    background:
+      radial-gradient(circle at 30% 40%, rgba(110,231,216,0.2), transparent 55%),
+      radial-gradient(circle at 75% 70%, rgba(45,100,247,0.12), transparent 50%),
+      linear-gradient(160deg, #0a1520 0%, #050709 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-img::before {
+    content: '';
+    position: absolute;
+    width: 60%; height: 1px;
+    background: linear-gradient(to right, transparent, var(--teal), transparent);
+    top: 50%;
+    opacity: 0.4;
+  }
+
+  .cover-label {
+    position: absolute;
+    bottom: 1rem; left: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted-2);
+    letter-spacing: 0.05em;
+  }
+
+  /* BODY */
+  .article-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 2rem) 6rem;
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #d4d8da;
+    margin-bottom: 1.6rem;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin: 2.8rem 0 1rem;
+    color: var(--text);
+  }
+
+  .article-body h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 2rem 0 0.8rem;
+    color: var(--text);
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    border-left: 2px solid var(--teal);
+    padding: 1rem 1.5rem;
+    margin: 2.5rem 0;
+    background: rgba(110,231,216,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Fraunces', serif !important;
+    font-size: 1.2rem !important;
+    font-weight: 400 !important;
+    color: var(--text) !important;
+    font-style: italic;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* DATA CARD */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+
+  .data-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+  }
+
+  .data-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .data-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* TAG */
+  .inline-tag {
+    display: inline-block;
+    background: var(--teal-dim);
+    color: var(--teal);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    margin-right: 6px;
+  }
+
+  /* FOOTER */
+  .article-footer {
+    border-top: 1px solid var(--border);
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem clamp(1.5rem, 5vw, 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: 'Fraunces', serif;
+    font-size: 0.9rem;
+    color: var(--muted-2);
+  }
+
+  .footer-copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted-2);
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border: 1px solid var(--teal-dim);
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+    transition: background 0.2s;
+    margin-top: 2rem;
+  }
+
+  .back-btn:hover { background: var(--teal-dim); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#6ee7d8" stroke-width="1.4"/><ellipse cx="12" cy="12" rx="9" ry="3.2" stroke="#6ee7d8" stroke-width="1" opacity="0.6"/></svg>
+    PulsoMundo
+  </a>
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-category">Infraestructura · Colombia</div>
+  <h1 class="article-title">El Túnel del Toyo: la obra que dará un nuevo pulso a Colombia</h1>
+  <p class="article-subtitle">El túnel carretero más largo de América Latina vive su momento más decisivo — un avance histórico en sus sistemas, y una polémica que amenaza con retrasar su apertura hasta 2027.</p>
+  <div class="article-meta">
+    <div class="meta-item">FECHA <span>18 de junio de 2026</span></div>
+    <div class="meta-item">LECTURA <span>4 minutos</span></div>
+    <div class="meta-item">AUTOR <span>PulsoMundo</span></div>
+  </div>
+</div>
+
+<!-- COVER -->
+<div class="article-cover">
+  <div class="cover-img">
+    <span class="cover-label">// Túnel Guillermo Gaviria Echeverri — Antioquia, Colombia</span>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="article-body">
+
+  <p>Hay obras que no son solo concreto y acero. Son promesas. El Túnel del Toyo — oficialmente llamado Túnel Guillermo Gaviria Echeverri — es una de esas. Durante años, representó la esperanza de conectar el corazón de Colombia con su salida al Caribe. Y esta semana, esa promesa dio un paso importante hacia la realidad.</p>
+
+  <p>El 17 de junio de 2026, el Gobierno Nacional anunció el inicio de la fase de ingeniería para instalar los equipos electromecánicos que permitirán operar el túnel. Una noticia celebrada — aunque también opacada por una disputa que lleva meses encendida entre el Invías y la Gobernación de Antioquia.</p>
+
+  <h2>¿Qué es exactamente el Túnel del Toyo?</h2>
+
+  <p>No es solo un túnel. Es un corredor vial completo que atraviesa la cordillera occidental de los Andes para unir a Medellín con la región de Urabá y los puertos del Caribe colombiano.</p>
+
+  <div class="data-grid">
+    <div class="data-card">
+      <div class="data-num">9,7 km</div>
+      <div class="data-label">Longitud del túnel principal — el más largo de América Latina</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">37,7 km</div>
+      <div class="data-label">Corredor vial total incluyendo túneles secundarios y puentes</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">4,5 h</div>
+      <div class="data-label">Tiempo de viaje Medellín–Urabá una vez operativo (hoy son 7 horas)</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">+2 billones</div>
+      <div class="data-label">Inversión total en pesos colombianos</div>
+    </div>
+  </div>
+
+  <p>El corredor también forma parte de una visión más grande: conectar el Pacífico con el Caribe, convirtiendo a Urabá en uno de los principales nodos logísticos de Colombia y toda la región.</p>
+
+  <div class="pull-quote">
+    <p>"Con la consolidación del corredor hacia Urabá, la distancia entre Medellín y los puertos del Caribe se reducirá de manera significativa, permitiendo una conexión mucho más eficiente hacia los nuevos terminales marítimos antioqueños."</p>
+  </div>
+
+  <h2>El avance de esta semana</h2>
+
+  <p>El director general del Invías, Juan Guillermo Jiménez, visitó la obra y confirmó el inicio formal de la instalación de equipos electromecánicos — los sistemas que hacen que un túnel funcione de verdad: ventilación, iluminación, comunicaciones, monitoreo, detección de incendios, control de tráfico y señalización variable.</p>
+
+  <p>La decisión tomó por sorpresa a varios: las obras civiles de impermeabilización todavía no han terminado, pero el Gobierno decidió avanzar en paralelo para no perder más tiempo.</p>
+
+  <h2>La polémica detrás del anuncio</h2>
+
+  <p>Pero hay una historia más complicada detrás de este avance. Los equipos electromecánicos que ahora se van a instalar llevan más de un año guardados en bodegas de Itagüí y La Estrella, en el Valle de Aburrá. Desde antes de octubre de 2025.</p>
+
+  <p>La razón: una disputa entre la Gobernación de Antioquia y el Invías sobre quién debía dar la orden de instalarlos, bajo qué condiciones técnicas y con qué garantías contractuales. Mientras los dos entes discutían, los equipos se llenaban de polvo.</p>
+
+  <p>El resultado es doloroso para los antioqueños: la apertura del túnel, que estaba prometida para diciembre de 2026, ya no será en este año. El nuevo cronograma apunta a 2027.</p>
+
+  <h2>El dinero que mueve la obra</h2>
+
+  <p>Para no depender solo del Gobierno Nacional — que ha recortado vigencias futuras —, la Asamblea Departamental de Antioquia aprobó por unanimidad destinar más de 88 mil millones de pesos provenientes de las utilidades de Hidroituango directamente al Túnel del Toyo. Es la primera vez en la historia que esa central hidroeléctrica genera transferencias directas para inversión en el territorio.</p>
+
+  <p>Además, la empresa Construcciones El Cóndor recibió una adición de 39 mil millones de pesos y una prórroga de su contrato hasta diciembre de 2026 para continuar con las vías de acceso al túnel.</p>
+
+  <h2>¿Por qué importa para todo Colombia?</h2>
+
+  <p>Urabá no es solo geografía. Es el futuro puerto del país. Puerto Antioquia ya se prepara para recibir sus primeros buques desde noviembre de 2026. Cuando el Túnel del Toyo esté operativo, los tiempos y costos de transporte de carga desde el interior del país hacia ese puerto se reducirán drásticamente — beneficiando exportaciones de banano, carbón y manufactura.</p>
+
+  <p>Para los colombianos de a pie, significa algo más simple: poder llegar al mar en la mitad del tiempo.</p>
+
+  <div class="pull-quote">
+    <p>"Esta obra transformará la movilidad y la competitividad de la región", señaló el director del Invías. La pregunta ahora es cuándo — y si la burocracia dejará que eso pase.</p>
+  </div>
+
+  <p><span class="inline-tag">Infraestructura</span><span class="inline-tag">Colombia</span><span class="inline-tag">Antioquia</span><span class="inline-tag">Inversión</span></p>
+
+  <a href="index.html" class="back-btn">← Volver a PulsoMundo</a>
+
+</div>
+
+<div class="article-footer">
+  <div class="footer-brand">PulsoMundo</div>
+  <div class="footer-copy">© 2026 · Divulgación desde Colombia</div>
+</div>
+
+</body>
+</html>
