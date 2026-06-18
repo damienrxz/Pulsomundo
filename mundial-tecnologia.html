@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>El Mundial más tecnológico de la historia — PulsoMundo</title>
+<meta name="description" content="El Mundial 2026 no es solo fútbol. Es el laboratorio tecnológico más grande del mundo: avatares 3D, IA táctica, balones inteligentes y 150 millones de datos por partido."/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:      #060708;
+    --card:    #0f1214;
+    --border:  #1c2023;
+    --teal:    #6ee7d8;
+    --teal-dim:#1f3d3a;
+    --text:    #f3f5f4;
+    --muted:   #888f93;
+    --muted-2: #5a6063;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(6,7,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.1rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .nav-logo svg { width: 16px; height: 16px; }
+  .nav-back { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+  .nav-back:hover { color: var(--teal); }
+
+  .article-hero { max-width: 780px; margin: 0 auto; padding: 4rem clamp(1.5rem, 5vw, 2rem) 2rem; }
+  .article-category { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--teal); text-transform: uppercase; margin-bottom: 1.4rem; }
+  .article-category::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--teal); }
+  .article-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 1.2rem; }
+  .article-subtitle { font-size: 1.15rem; color: var(--muted); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; }
+  .article-meta { display: flex; align-items: center; gap: 1.5rem; padding: 1.2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .meta-item { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted-2); letter-spacing: 0.04em; }
+  .meta-item span { color: var(--muted); }
+
+  .article-cover { max-width: 900px; margin: 0 auto 3rem; padding: 0 clamp(1.5rem, 5vw, 2rem); }
+  .cover-img {
+    width: 100%; height: clamp(220px, 40vw, 420px);
+    background: radial-gradient(circle at 50% 40%, rgba(110,231,216,0.15), transparent 55%),
+      radial-gradient(circle at 80% 80%, rgba(45,100,247,0.1), transparent 50%),
+      linear-gradient(160deg, #07100d 0%, #050709 100%);
+    border-radius: 12px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .cover-emoji { font-size: 5rem; opacity: 0.12; }
+  .cover-label { position: absolute; bottom: 1rem; left: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted-2); letter-spacing: 0.05em; }
+
+  .article-body { max-width: 680px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 2rem) 6rem; }
+  .article-body p { font-size: 1.05rem; font-weight: 300; color: #d4d8da; margin-bottom: 1.6rem; line-height: 1.8; }
+  .article-body h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.6rem; margin: 2.8rem 0 1rem; color: var(--text); }
+
+  .pull-quote { border-left: 2px solid var(--teal); padding: 1rem 1.5rem; margin: 2.5rem 0; background: rgba(110,231,216,0.04); border-radius: 0 8px 8px 0; }
+  .pull-quote p { font-family: 'Fraunces', serif !important; font-size: 1.2rem !important; font-weight: 400 !important; color: var(--text) !important; font-style: italic; margin: 0 !important; line-height: 1.5 !important; }
+
+  .data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2.5rem 0; }
+  .data-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.4rem; }
+  .data-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300; color: var(--teal); line-height: 1; margin-bottom: 0.4rem; }
+  .data-label { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+  .tech-list { list-style: none; margin: 2rem 0; display: flex; flex-direction: column; gap: 1rem; }
+  .tech-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.4rem; display: flex; gap: 1rem; align-items: flex-start; }
+  .tech-num { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--teal); min-width: 24px; padding-top: 2px; }
+  .tech-text h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; color: var(--text); }
+  .tech-text p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.5; }
+
+  .inline-tag { display: inline-block; background: var(--teal-dim); color: var(--teal); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; margin-right: 6px; }
+  .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--teal); text-decoration: none; font-size: 0.85rem; border: 1px solid var(--teal-dim); padding: 0.6rem 1.2rem; border-radius: 100px; transition: background 0.2s; margin-top: 2rem; }
+  .back-btn:hover { background: var(--teal-dim); }
+
+  .article-footer { border-top: 1px solid var(--border); max-width: 680px; margin: 0 auto; padding: 2rem clamp(1.5rem, 5vw, 2rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-brand { font-family: 'Fraunces', serif; font-size: 0.9rem; color: var(--muted-2); }
+  .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--muted-2); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#6ee7d8" stroke-width="1.4"/><ellipse cx="12" cy="12" rx="9" ry="3.2" stroke="#6ee7d8" stroke-width="1" opacity="0.6"/></svg>
+    PulsoMundo
+  </a>
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-category">Tech / Sociedad · Mundial 2026</div>
+  <h1 class="article-title">El Mundial más tecnológico de la historia está pasando ahora mismo</h1>
+  <p class="article-subtitle">150 millones de datos por partido. Avatares 3D de cada jugador. IA táctica para los 48 técnicos. El Mundial 2026 no es solo fútbol — es el laboratorio tecnológico más grande del planeta.</p>
+  <div class="article-meta">
+    <div class="meta-item">FECHA <span>18 de junio de 2026</span></div>
+    <div class="meta-item">LECTURA <span>4 minutos</span></div>
+    <div class="meta-item">AUTOR <span>PulsoMundo</span></div>
+  </div>
+</div>
+
+<div class="article-cover">
+  <div class="cover-img">
+    <span class="cover-emoji">⚽</span>
+    <span class="cover-label">// Copa Mundial FIFA 2026 · EE.UU., México y Canadá</span>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>Colombia ya ganó su primer partido — 3-1 contra Uzbekistán en el Estadio Azteca de Ciudad de México. Pero mientras los colombianos celebran los goles de Luis Díaz y compañía, hay algo más grande pasando dentro y fuera de la cancha: la inteligencia artificial está jugando su propio partido, y nadie la está viendo.</p>
+
+  <p>El Mundial 2026 — con sede en Estados Unidos, México y Canadá — es oficialmente el evento deportivo más tecnológico de la historia. No es exageración. Es lo que dicen los números.</p>
+
+  <div class="data-grid">
+    <div class="data-card">
+      <div class="data-num">150M</div>
+      <div class="data-label">Puntos de datos generados por partido — 4 veces más que Qatar 2022</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">1.248</div>
+      <div class="data-label">Jugadores escaneados en 3D antes del torneo para el sistema VAR</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">500</div>
+      <div class="data-label">Veces por segundo que el balón se comunica con el datacenter del estadio</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">48</div>
+      <div class="data-label">Selecciones con acceso a Football AI Pro — IA táctica disponible 24/7</div>
+    </div>
+  </div>
+
+  <h2>El balón que piensa</h2>
+
+  <p>La pelota oficial de este Mundial no es solo cuero y aire. Tiene sensores internos que transmiten información 500 veces por segundo al datacenter de cada estadio: el punto exacto donde la tocan, la velocidad, el ángulo, el spin, la rotación. Todo en tiempo real.</p>
+
+  <p>Esa información alimenta directamente el sistema de VAR semiautomático. Cuando hay una jugada polémica, el árbitro no solo ve el video — ve un modelo 3D reconstruido del momento exacto, con el avatar digital del jugador involucrado mostrando la posición precisa de cada parte de su cuerpo.</p>
+
+  <div class="pull-quote">
+    <p>"La cantidad de información que hay es absoluta. El balón manda información del punto kinético donde lo están tocando, la velocidad, el ángulo, el spin, la rotación." — Periodista de El Tiempo, citando a la FIFA</p>
+  </div>
+
+  <h2>Los 5 avances tecnológicos que debes conocer</h2>
+
+  <ul class="tech-list">
+    <li class="tech-item">
+      <span class="tech-num">01</span>
+      <div class="tech-text">
+        <h4>Avatares 3D de cada jugador</h4>
+        <p>Todos los 1.248 jugadores fueron escaneados en un segundo antes del torneo. Sus modelos 3D se usan en el VAR para mostrar posiciones exactas del cuerpo en jugadas de offside o penalti, incluso cuando las cámaras no tienen visión directa.</p>
+      </div>
+    </li>
+    <li class="tech-item">
+      <span class="tech-num">02</span>
+      <div class="tech-text">
+        <h4>Football AI Pro — el asistente táctico de la FIFA</h4>
+        <p>Desarrollado con Lenovo, es una IA generativa disponible 24/7 para los 48 cuerpos técnicos. Analiza cientos de millones de datos para generar informes tácticos, predecir patrones de movimiento del rival y gestionar cargas de trabajo para prevenir lesiones.</p>
+      </div>
+    </li>
+    <li class="tech-item">
+      <span class="tech-num">03</span>
+      <div class="tech-text">
+        <h4>Referee View — la cámara del árbitro</h4>
+        <p>Por primera vez, los árbitros llevan cámaras corporales cuyas imágenes son estabilizadas en tiempo real con IA. Los espectadores pueden ver exactamente lo que ve el árbitro durante jugadas clave.</p>
+      </div>
+    </li>
+    <li class="tech-item">
+      <span class="tech-num">04</span>
+      <div class="tech-text">
+        <h4>Gemelos digitales de los estadios</h4>
+        <p>Cada estadio tiene una réplica virtual 3D actualizada en tiempo real. Sirve para simular evacuaciones, detectar saturaciones de público y anticipar problemas de seguridad antes de que ocurran.</p>
+      </div>
+    </li>
+    <li class="tech-item">
+      <span class="tech-num">05</span>
+      <div class="tech-text">
+        <h4>Moderación de redes sociales con IA</h4>
+        <p>Sistemas automáticos analizan millones de publicaciones en redes para detectar insultos, amenazas y contenido discriminatorio contra jugadores y selecciones en tiempo real.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h2>¿Puede la IA predecir quién gana?</h2>
+
+  <p>La pregunta que todos se hacen. ChatGPT, Gemini y Claude coinciden en señalar a España como favorita al título. Como vicecampeón apuntan a Francia. Pero la realidad ya mostró que los algoritmos no lo saben todo: España empató 0-0 con Cabo Verde en su debut, y Brasil igualó 1-1 con Marruecos — resultados que ningún modelo anticipó.</p>
+
+  <div class="pull-quote">
+    <p>"Un pronóstico de IA es una foto de probabilidades, no un veredicto. Si la IA no acierta el campeón de un torneo, hay que preguntarse qué le estamos dejando decidir en cosas que sí cambian una vida." — Betania Allo, especialista en IA y Ciberseguridad</p>
+  </div>
+
+  <p>Y tiene razón. El fútbol sigue siendo el deporte donde el más débil puede ganarle al más fuerte en 90 minutos. Ningún algoritmo puede calcular lo que siente un hincha con un gol en el minuto 90, ni la presión de un penal decisivo.</p>
+
+  <h2>Lo que esto significa más allá del fútbol</h2>
+
+  <p>El Mundial 2026 es importante para la tecnología por una razón que va más allá del deporte: es el mayor experimento en tiempo real de IA aplicada a millones de personas simultáneamente. Los sistemas que se prueban aquí — reconocimiento facial, análisis predictivo, gemelos digitales, moderación automática — son los mismos que en pocos años estarán en hospitales, ciudades y empresas de todo el mundo.</p>
+
+  <p>Colombia está en ese Mundial. Y también está en la cancha tecnológica — con un 24,5% de adopción de IA que la pone entre los líderes de América Latina. Que ambas cosas pasen al mismo tiempo no es casualidad. Es el retrato de un país que está cambiando más rápido de lo que cree.</p>
+
+  <p><span class="inline-tag">Tech / IA</span><span class="inline-tag">Sociedad</span><span class="inline-tag">Mundial 2026</span><span class="inline-tag">Colombia</span></p>
+
+  <a href="index.html" class="back-btn">← Volver a PulsoMundo</a>
+</div>
+
+<div class="article-footer">
+  <div class="footer-brand">PulsoMundo</div>
+  <div class="footer-copy">© 2026 · Divulgación desde Colombia</div>
+</div>
+
+</body>
+</html>
